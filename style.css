@@ -888,7 +888,7 @@ input[type="checkbox"] {
 
 
 .test-content .blue{
-    background: url("/companies images/Rectangle 129139.png");
+    background: url("./companies images/Rectangle 129139.png");
     position: relative;  
     height: 105vh;
     width: 80%; 
