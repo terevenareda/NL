@@ -328,3 +328,18 @@ if (offcanvasElement) {
     });
   });
 }
+
+const faqTriggers = document.querySelectorAll(".faq-drawer__trigger");
+
+faqTriggers.forEach(trigger => {
+  trigger.addEventListener("change", () => {
+    if (trigger.checked) {
+      faqTriggers.forEach(other => {
+        if (other !== trigger) {
+          other.checked = false;
+        }
+      });
+    }
+  });
+});
+
