@@ -84,6 +84,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotRight = document.getElementById("dotRight");
   const dots = document.querySelectorAll(".dot");
 
+
+    // ===== Initial Ring Position =====
+  window.addEventListener("load", () => {
+    // Make the left dot active initially
+    setActiveDot(dotLeft);
+    moveRing(dotLeft);
+
+    // Ensure the slider shows the first card
+    currentIndex = 0;
+    updateSlider();
+  });
+
+
   function getCardWidth() {
     if (!slider || !cards.length) return 0;
     const gap = parseInt(getComputedStyle(slider).gap) || 20;
@@ -174,3 +187,144 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ===== Slider =====
+const slider = document.getElementById("cardSlider");
+const cards = document.querySelectorAll(".card");
+let currentIndex = 0;
+
+const dotLeft = document.getElementById("dotLeft");
+const dotCenter = document.getElementById("dotCenter");
+const dotRight = document.getElementById("dotRight");
+const dots = document.querySelectorAll(".dot");
+
+// ===== Initial Ring Position =====
+window.addEventListener("load", () => {
+  setActiveDot(dotLeft);
+  moveRing(dotLeft);
+
+  currentIndex = 0;
+  updateSlider();
+
+  startAutoSlide(); // start automatic sliding
+});
+
+// ===== Get card width =====
+function getCardWidth() {
+  if (!slider || !cards.length) return 0;
+  const gap = parseInt(getComputedStyle(slider).gap) || 20;
+  return cards[0].offsetWidth + gap;
+}
+
+let cardWidth = getCardWidth();
+
+// ===== Update slider position =====
+function updateSlider() {
+  if (!slider || !cards.length) return;
+  slider.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+}
+
+// ===== Set active dot =====
+function setActiveDot(dot) {
+  dots.forEach(d => d.classList.remove("active"));
+  dot.classList.add("active");
+}
+
+// ===== Dot click events =====
+dotLeft?.addEventListener("click", () => {
+  if (currentIndex > 0) currentIndex--;
+  updateSlider();
+  setActiveDot(dotLeft);
+  moveRing(dotLeft);
+});
+
+dotRight?.addEventListener("click", () => {
+  if (currentIndex < cards.length - 1) currentIndex++;
+  updateSlider();
+  setActiveDot(dotRight);
+  moveRing(dotRight);
+});
+
+dotCenter?.addEventListener("click", () => {
+  if (dotCenter.classList.contains("active")) return;
+  if (currentIndex < cards.length - 1) currentIndex++;
+  else if (currentIndex > 0) currentIndex--;
+  updateSlider();
+  setActiveDot(dotCenter);
+  moveRing(dotCenter);
+});
+
+// ===== Ring Animation =====
+const ring = document.querySelector(".dot-ring");
+let ringBusy = false;
+
+function moveRing(dot) {
+  if (ringBusy) return;
+  ringBusy = true;
+
+  const dotRect = dot.getBoundingClientRect();
+  const parentRect = dot.parentElement.getBoundingClientRect();
+  const offsetLeft = dotRect.left - parentRect.left + dotRect.width / 2;
+
+  ring.style.left = `${offsetLeft}px`;
+  ring.classList.add("active");
+
+  setTimeout(() => (ringBusy = false), 400);
+}
+
+dots.forEach(dot => dot.addEventListener("click", () => moveRing(dot)));
+
+// ===== Resize Fix =====
+function updateCardWidth() {
+  if (!slider || !cards.length) return;
+  if (window.innerWidth <= 768) {
+    const gap = parseInt(getComputedStyle(slider).gap) || 20;
+    cardWidth = cards[0].offsetWidth + gap;
+  } else {
+    const style = getComputedStyle(cards[0]);
+    const marginLeft = parseInt(style.marginLeft);
+    const marginRight = parseInt(style.marginRight);
+    cardWidth = cards[0].offsetWidth + marginLeft + marginRight;
+  }
+  updateSlider();
+}
+
+window.addEventListener("resize", updateCardWidth);
+window.addEventListener("load", updateCardWidth);
+
+// ===== Auto Slide =====
+let autoSlideInterval;
+function startAutoSlide() {
+  autoSlideInterval = setInterval(() => {
+    currentIndex++;
+    if (currentIndex >= cards.length) currentIndex = 0;
+
+    updateSlider();
+
+    // Update dots & ring based on currentIndex
+    if (currentIndex === 0) {
+      setActiveDot(dotLeft);
+      moveRing(dotLeft);
+    } else if (currentIndex === Math.floor(cards.length / 2)) {
+      setActiveDot(dotCenter);
+      moveRing(dotCenter);
+    } else if (currentIndex === cards.length - 1) {
+      setActiveDot(dotRight);
+      moveRing(dotRight);
+    }
+  }, 4000); 
+}
+
+// ===== Offcanvas Sidebar Close on Mobile =====
+const offcanvasElement = document.getElementById("sidebarOffcanvas");
+if (offcanvasElement) {
+  const offcanvasLinks = offcanvasElement.querySelectorAll(".nav-link");
+  offcanvasLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth < 992) {
+        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+        if (offcanvas) offcanvas.hide();
+      }
+    });
+  });
+}

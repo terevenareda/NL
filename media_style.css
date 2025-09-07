@@ -51,6 +51,7 @@
     .services-content h5{
         margin-top: 5rem;
     }
+
     .service-titles{
         margin-left: 30px;
         height: 80vh;
@@ -66,6 +67,15 @@
         line-height: 35px;
         color: #5d5a5a;
     }
+    .services-content{
+        position: relative;
+        left:0px;
+        width: 100%;
+        margin-right: 5px;
+    }
+    .container.services {
+        margin-left: 0px;
+    }
 
     .container{
         padding: 10px 0px;
@@ -74,7 +84,9 @@
     .faq-drawer label{
         font-size: 25px;
     }
-
+    .faq-drawer {
+        margin-right: 18px;
+    }
     .faq-drawer p{
         padding-left: 10px;
         margin-left: 5px;
@@ -95,8 +107,8 @@
     }
 
     .subdiaries-content {
-        height: 200vh;
         width: 100%;
+        left: 0px;
     }
 
     .sub-column {
@@ -112,14 +124,14 @@
         left: 0%;
     }
      .sub-column {
-        height: auto !important;   /* let column grow with content */
-        min-height: unset !important; /* in case you had min-height */
-        overflow: visible !important; /* prevent content cut */
+        height: auto !important;  
+        min-height: unset !important; 
+        overflow: visible !important; 
     }
 
     .sub-column button {
-        margin-top: 50px;        /* space above button */
-        align-self: flex-start;  /* button aligns left like desktop */
+        margin-top: 50px;        
+        align-self: flex-start;  
     }
     
     .subdiaries-content p{
@@ -156,6 +168,7 @@
     .partners-content{
         height: 80vh;
         margin-bottom: 30px;
+        left: 0px;
     }
     .partners-header {
         margin-top: 130px;
@@ -185,6 +198,7 @@
 
     .test-content{
         width: 100%;
+        left: 0px;
     }
     .test-content .blue{
         height: auto;
@@ -263,6 +277,7 @@
 
     .contact-content{
         background: none;
+        left: 0px;
     }
     .contact-header{
         margin-bottom: 30px;
@@ -360,11 +375,20 @@
         padding: 9px;
     }
 
+    .socialmediaimg {
+        width: 18px;
+        height: 15px;
+        opacity: 1;
+    }
+
     .btn-icon img {
         filter: brightness(0) invert(1);
     }
     .partners-content .logo-box:hover{
         transition: none;
+    }
+    .navItemsSocial{
+        gap:1.5rem;
     }
 
 }
@@ -391,6 +415,12 @@
         width:24px;
     }
 
+    .socialmediaimg {
+        width: 30px;
+        height: 34px;
+        opacity: 1;
+    }
+
     .content p {
         font-size: 30px;
         line-height: 40px;
@@ -410,6 +440,14 @@
         height: 61px;
         font-size: 22px;
     }
+
+    .container.services{
+        margin-left: 28px;
+    }
+    .services-content{
+        left:0px;
+        width: 100%;
+    }
     .service-titles{
         margin-top: 130px;
     }
@@ -422,6 +460,7 @@
         font-size: 30px;
         line-height: 40px;
     }
+
 
     .subdiaries-content p{
         font-size: 30px;
@@ -479,6 +518,10 @@
         height: 70px;
         right:6%;
     }
+    .partners-content{
+        width: 100%;
+        left: 0px;
+    }
 
     .partners-content p{
         font-size: 30px;
@@ -525,6 +568,10 @@
     .card hr {
         margin: 25px 0px;
     }
+    .test-content{
+        width: 100%;
+        left: 0px;
+    }
     .test-content .blue {
         height: 95vh;
         width: 95%;
@@ -534,6 +581,8 @@
     }
     .contact-content{
         background-position: bottom;
+        left: 0px;
+        width: 100%;
     }
     .content .titles {
         margin: 0px 60px;
@@ -549,6 +598,8 @@
     .subdiaries-content {
         flex: 0 0 100% !important;
         max-width: 100% !important;
+        width: 100%;
+        left: 0px;
     }
     .partners-content{
         flex: 0 0 100% !important;

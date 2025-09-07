@@ -126,22 +126,23 @@ html, body {
     margin-bottom:2rem;
 }
 
+.socialmediaimg{
+    width: 17px;
+    height: 17px;
+    opacity: 0.5;
+}
+
 .nav-item.socialmedia {
     width: auto !important;
     margin-bottom: 6px;
-    margin-left: 20px;
 }
 
-.facebook.btn-icon{
-    border-radius: 50%;
-    border-color: lightgray;
-    border-width: 1px;
-    border-style: solid;
-    padding:8px 13px;
-    align-content: center;
+.btn-icon i {
+    color: inherit; 
 }
 
-.linkedin.btn-icon, .twitter.btn-icon{
+
+.linkedin.btn-icon, .twitter.btn-icon, .facebook.btn-icon{
     border-radius: 50%;
     border-color: lightgray;
     border-width: 1px;
@@ -158,26 +159,30 @@ html, body {
     background-color: #0B3861;
     border-color: #0B3861;
     transition: background-color 0.5s ease, border-color 0.3s ease;
+    opacity: 1;
 }
 
 .twitter.btn-icon:hover{
     background-color: #40C4FF;
     border-color: #40C4FF;
     transition: background-color 0.5s ease, border-color 0.3s ease;
+    opacity: 1;
 }
 
 .linkedin.btn-icon:hover{
     background-color: #0690CE;
     border-color: #0690CE;
     transition: background-color 0.5s ease, border-color 0.3s ease;
+    opacity: 1;
 }
 
-
-
-.custom-grid {
-  display: flex;      
-  align-items: stretch; 
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
 }
+
 
 .sidebar {
     padding-left: 21px;
@@ -185,9 +190,8 @@ html, body {
     justify-content: space-between;
     background-color: white;
     border-right: #2828281A solid 1px;
-    display: flex;         
-    flex-direction: column;
-    height: 140vh; 
+    height: 100vh; 
+    position: fixed;
 }
 
 .mobile-sidebar {
@@ -208,10 +212,9 @@ html, body {
 
 
 .content{
-    background:url("./background images/image.jpg") no-repeat;
+    background:url("./background images/image.png") no-repeat;
     background-size: cover;
-    min-height: 100vh;  /* at least full screen */
-    height: auto;       /* let it expand with content */
+    height: 100vh;  /* at least full screen */     /* let it expand with content */
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -245,16 +248,15 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 350;
     font-style: normal;
-    font-size: 18px;
+    font-size: 17px;
     color: #5d5a5a;
     line-height: 30px;
-    letter-spacing: 2px;
     margin-top: 2rem;
     margin-bottom:80px;
 }
 
 .explorebtn{
-    -webkit-appearance: none;  /* Remove default browser styling */
+    -webkit-appearance: none;  
     appearance: none;
     color:white;
     width: 177px;
@@ -270,8 +272,8 @@ html, body {
     margin-right: 20px;
     outline: none;
     box-shadow: none;
-    -webkit-tap-highlight-color: transparent; /* For Chrome/Safari */
-    user-select: none; /* Prevent text selection flash */
+    -webkit-tap-highlight-color: transparent; 
+    user-select: none; 
 
 }
 
@@ -282,7 +284,7 @@ html, body {
 }
 
 .contactbtn{
-    -webkit-appearance: none;  /* Remove default browser styling */
+    -webkit-appearance: none;  
     appearance: none;
     color:#1D1D1D;
     background: none;
@@ -297,7 +299,7 @@ html, body {
     text-transform: uppercase;
     outline: none;
     box-shadow: none;
-    -webkit-tap-highlight-color: transparent; /* For Chrome/Safari */
+    -webkit-tap-highlight-color: transparent; 
     
 }
 
@@ -334,11 +336,13 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center; 
+    position: relative;
+    left: 130px;
 }
-
-.service-titles{
+.container.services{
+    padding: 0px;
+    margin-right: 0px;
     margin-left: 50px;
-    margin-right: 50px;
 }
 
 .services-content h5{
@@ -365,10 +369,9 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 18px;
+    font-size: 17px;
     color: #5d5a5a;
     line-height: 30px;
-    letter-spacing: 2px;
     margin-top: 2rem;
 }
 
@@ -379,8 +382,8 @@ html, body {
 
 .faq-drawer__content{
     position: relative;
-    overflow: visible;      /* prevent cutting */
-    display: flex;          /* so text and image can live together */
+    overflow: visible;     
+    display: flex;         
     align-items: flex-start;
     gap: 5rem;             
 }
@@ -461,10 +464,9 @@ input[type="checkbox"] {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 18px;
+    font-size: 17px;
     color: #5d5a5a;
     line-height: 30px;
-    letter-spacing: 2px;
     margin-top: 2rem;
     border-left: 2px solid rgba(29, 29, 29, 0.5);
     padding-left: 50px;
@@ -646,7 +648,6 @@ input[type="checkbox"] {
     color: #5d5a5a;
     font-size: 17px;
     line-height: 25px;
-    letter-spacing: 0; 
 
 }
 
@@ -654,6 +655,8 @@ input[type="checkbox"] {
     min-height: 100%;           /* Take full available height */
     display: flex;
     flex-direction: column;
+    position: relative;
+    left: 130px;
 }
 .subdiaries-content > .row {
   flex: 1;                     /* Allow row to expand naturally */
@@ -753,6 +756,8 @@ input[type="checkbox"] {
     height: auto;
     align-content: center;
     margin-bottom: 10px;
+    position: relative;
+    left: 130px;
 }
 
 .partners-content h5{
@@ -768,7 +773,7 @@ input[type="checkbox"] {
 }
 
 .partners-content h3{
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 350;
     font-style: normal;
@@ -780,15 +785,14 @@ input[type="checkbox"] {
     font-family: 'Montserrat', sans-serif;
     font-weight: 350;
     font-style: normal;
-    font-size: 18px;
+    font-size: 17px;
     color: #5d5a5a;
     line-height: 30px;
-    letter-spacing: 2px;
 }
 
 .partners-content .logo-box{
-    width: 202px;           
-    height: 152px;
+    width: 189px;
+    height: 128px;
     border: 0.05em solid rgb(238, 234, 234); 
     display: flex;
     align-items: center;
@@ -816,6 +820,8 @@ input[type="checkbox"] {
     padding-bottom: 50px;
     background-position: center;
     height: auto;
+    position: relative;
+    left: 130px;
 }
 
 
@@ -853,7 +859,7 @@ input[type="checkbox"] {
     font-weight: 400;
     font-style: normal;
     color: #5d5a5a;
-    font-size: 18px;
+    font-size: 17px;
     text-transform: uppercase;
     line-height: 25px;
 }
@@ -868,7 +874,7 @@ input[type="checkbox"] {
 }
 
 .test-content h5 {
-    margin-bottom: 25px;
+    margin-bottom: 16px;
     font-family: 'Poppins', sans-serif;
     font-style: semi-bold;
     font-weight: 600;
@@ -876,6 +882,11 @@ input[type="checkbox"] {
     color: #0690CE;
     letter-spacing: 4px;
     text-transform: uppercase;
+}
+
+.test-content{
+    position: relative;
+    left: 130px;
 }
 
 .test-content h3{
@@ -888,9 +899,9 @@ input[type="checkbox"] {
 
 
 .test-content .blue{
-    background: url("./companies images/Rectangle 129139.png");
+    background-color:#08274a;
     position: relative;  
-    height: 105vh;
+    height: 100vh;
     width: 80%; 
     margin-left: 50px;
 }
@@ -902,7 +913,7 @@ input[type="checkbox"] {
     width: 90px;         
     height: 90px;
     transform: translateY(-40%);
-    padding: 50px;
+    padding: 45px;
     margin-left: 80px;
  
 }
@@ -910,6 +921,7 @@ input[type="checkbox"] {
 .test-content .blue .quotes{
     position: absolute; 
     height: auto;
+    width: 50px;
     border-radius: 0;
 }
 
@@ -945,7 +957,7 @@ input[type="checkbox"] {
 .card {
   flex: 0 0 320px;    
   margin-right: 20px; 
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   height: 400px;
   background: white;
   border-radius: 10px;
@@ -968,9 +980,8 @@ input[type="checkbox"] {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 18px;
+    font-size: 17px;
     color: #5d5a5a;
-    letter-spacing: 2px;
     line-height: 28px;
     margin-top: auto;
 }
