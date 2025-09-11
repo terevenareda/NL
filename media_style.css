@@ -9,8 +9,8 @@
         z-index: 10;  
     }
     .companyLogo{
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
     .navItems .nav-link{
         font-size: 22px;
@@ -18,25 +18,29 @@
 
     .navbar-toggler{
         color:#0690CE;
+        width: 65px;
+        height: 40px;
+    }
+
+    .navbar-toggler-icon {
+        width: 35px;
+        height: 20px;
     }
 
     .container {
-        min-height: calc(100vh - 120px); /* full viewport height minus navbar */
+        min-height: calc(100vh - 120px); 
         display: flex;
         flex-direction: column;
     }
 
     .explorebtn{
-        width: 155px;
-        font-size: 18px;
+        width: 136px;
+        font-size: 15px;
         background-color: #0B3861;
         color: white;
         margin-right: 10px;
     }
 
-    .buttons{
-        padding-bottom: 20px;
-    }
     .content{
         width: auto;
         height: auto;
@@ -50,19 +54,22 @@
     }
 
     .contactbtn{
-        width: 155px;
-        font-size: 18px;
+        width: 136px;
+        font-size: 15px;
     }
     .content h5{
         margin-top:0px;
+        font-size: 16px;
     }
    .content h3{
-        font-size: 45px;
+        font-size: 35px;
    }
 
     .content p{
-        font-size:25px;
-        line-height: 35px;
+        font-size: 18px;
+        line-height: 28px;
+        margin-top: 0px;
+        margin-bottom: 1rem;
         color: #5d5a5a;
     }
 
