@@ -76,7 +76,7 @@ html, body {
   content: "";
   position: absolute;
   left: 0;
-  width: 0; /* hidden initially */
+  width: 0; 
   height: 4px;
   background-color: #0690CE;
   border-radius: 1px;
@@ -92,7 +92,6 @@ html, body {
 }
 
 
-/* Active link stays at same width */
 .navItems .nav-link.active {
   color: #0690CE;
   font-weight: 700;
@@ -100,7 +99,7 @@ html, body {
 
 .navItems .nav-link.active::before,
 .navItems .nav-link.active::after {
-  width: 10%; /* same fixed width */
+  width: 10%; 
 }
 
 .navItemsSocial {
@@ -175,9 +174,7 @@ a:active {
     background-color: white;
     border-right: #2828281A solid 1px;
     height: 100vh;
-    
 }
-
 
 .navbar-container{
     width: 12%;

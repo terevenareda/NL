@@ -43,7 +43,6 @@
 
     .content{
         width: auto;
-        height: auto;
         position: relative;      
         left: auto;
     }
@@ -461,7 +460,6 @@
         line-height: 40px;
     }
     .content{
-        height: auto; 
         width: auto;  
         position: relative;      
         left: auto;            
