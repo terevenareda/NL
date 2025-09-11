@@ -28,7 +28,7 @@
     }
 
     .container {
-        min-height: calc(100vh - 120px); 
+        max-height: calc(100vh - 120px); 
         display: flex;
         flex-direction: column;
     }
@@ -45,10 +45,11 @@
         width: auto;
         position: relative;      
         left: auto;
+        margin: 0px;
     }
 
     .content .titles{
-        margin: 50px 0px;
+        margin: 0px;
         padding: 0px 10px;
     }
 
