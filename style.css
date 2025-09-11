@@ -8,6 +8,7 @@ html, body {
     background-color: white;
 }
 
+
 .page-transition {
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -15,18 +16,6 @@ html, body {
 
 .page-transition.fade-in {
   opacity: 1;
-}
-
-.col-xl-2 {
-    width: 9.666667%;
-}
-
-.col-xl-10 {
-    width: 90.333333%;
-}
-
-.col-lg-10{
-    width:90.333333%
 }
 
 .sidebar .logo-link,
@@ -40,10 +29,6 @@ html, body {
     margin-bottom: 1.25rem; 
 } 
 
-.nav{
-    display: flex;
-   
-}
 
 .navbar-toggler-icon{
     width: 45px;
@@ -70,7 +55,7 @@ html, body {
 }
 
 #sidebarMenu{
-    margin: 0 !important;   /* remove bottom margin */
+    margin: 0 !important; 
     padding: 0 !important;  
 }
 .navItems .nav-link {
@@ -183,14 +168,19 @@ a:active {
   text-decoration: none;
 }
 
-
 .sidebar {
-    padding-left: 21px;
+    align-items: center;
     box-sizing: border-box;
     justify-content: space-between;
     background-color: white;
     border-right: #2828281A solid 1px;
-    height: 100vh; 
+    height: 100vh;
+    
+}
+
+
+.navbar-container{
+    width: 12%;
     position: fixed;
 }
 
@@ -199,6 +189,10 @@ a:active {
   border-right: #2828281A solid 1px;
   --bs-offcanvas-width: 250px;
   padding: 1rem;
+}
+
+.offcanvas{
+  transition: transform 0.6s ease-in-out; 
 }
 
 .offcanvas-backdrop {
@@ -214,14 +208,22 @@ a:active {
 .content{
     background:url("./background images/image.png") no-repeat;
     background-size: cover;
-    height: 100vh;  /* at least full screen */     /* let it expand with content */
+    height: 100vh;  
     display: flex;
     flex-direction: column;
+    align-content: center;
     justify-content: center; 
+    position:relative;
+    margin: auto;
+    left: 5%;
+    width: 88%;
+    
 }
 
 .content .titles{
-    margin-left: 50px;
+    margin: 0px 20px;
+    width: 100%;
+    left: 0px;
 }
 
 .content h5{
@@ -252,7 +254,7 @@ a:active {
     color: #5d5a5a;
     line-height: 30px;
     margin-top: 2rem;
-    margin-bottom:80px;
+    margin-bottom:3rem;
 }
 
 .explorebtn{
@@ -336,14 +338,18 @@ a:active {
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    position: relative;
-    left: 130px;
+    align-items: center;  
+    position:relative;
+    margin: auto;
+    left: 5%;
+    width: 88%;
 }
-.container.services{
-    padding: 0px;
-    margin-right: 0px;
-    margin-left: 50px;
+
+.services {
+    width: 100%;
+    margin: 0 auto;   
 }
+
 
 .services-content h5{
     margin-bottom: 25px;
@@ -482,11 +488,6 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
-@media only screen and (max-width: 600px) {
-  .container {
-    padding: 80px;
-  }
-}
 
 .first {
     position: relative;
@@ -749,24 +750,23 @@ input[type="checkbox"] {
     border-radius: 5px;   
 }
 
+
 .partners-content{
     background:url("./background images/Frame 19.png") no-repeat;
     background-size: cover;
     height: auto;
     align-content: center;
-    margin-bottom: 10px;
-    position: relative;
-    left: 130px;
+    position:relative ;
+    left: 5%;
+    width: 88%;
 }
 
 .partners-content h5{
-    margin-bottom: 25px;
     font-family: 'Poppins', sans-serif;
     font-style: semi-bold;
     font-weight: 600;
     font-size: 20px;
     color: #0690CE;
-    margin-top: 2rem;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
@@ -790,24 +790,24 @@ input[type="checkbox"] {
 }
 
 .partners-content .logo-box{
-    width: 189px;
+    width: 191px;
     height: 128px;
     border: 0.05em solid rgb(238, 234, 234); 
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;  
-    transition: background 1s ease;  
+    transition: background 1s ease, border-color 1s ease;;  
 }
 
 .partners-content .logo-box:hover{
     background-color: white;
-    border: 0.05em solid rgb(245, 240, 240);
+    border-color: rgb(250, 247, 247);
 }
 
 .partners-header{
-    padding-bottom: 20px;
-    margin: 0px 50px;
+    margin: 25px 30px;
+    
 }
 
 .logo-box .img{
@@ -1033,25 +1033,21 @@ input[type="checkbox"] {
 }
 
 
-/* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #4f89a3;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #67b0d1;
-}
+} */
 
 /* Treat anything up to 1024px as mobile */
 @media (max-width: 1024px) {

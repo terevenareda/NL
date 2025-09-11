@@ -1,9 +1,12 @@
 @media screen and (min-width:100px) and (max-width: 600px){
     .navbar{
-        padding: 20px;
-    }
-    .col-xl-10 {
-        width: 100.333333%;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 10;  
     }
     .companyLogo{
         width: 60px;
@@ -17,33 +20,48 @@
         color:#0690CE;
     }
 
+    .container {
+        min-height: calc(100vh - 120px); /* full viewport height minus navbar */
+        display: flex;
+        flex-direction: column;
+    }
+
     .explorebtn{
         width: 155px;
         font-size: 18px;
         background-color: #0B3861;
         color: white;
-        margin-bottom: 20px;
         margin-right: 10px;
+    }
+
+    .buttons{
+        padding-bottom: 20px;
+    }
+    .content{
+        width: auto;
+        height: auto;
+        position: relative;      
+        left: auto;
+    }
+
+    .content .titles{
+        margin: 20px 0px;
+        padding: 0px 10px;
     }
 
     .contactbtn{
         width: 155px;
         font-size: 18px;
-        margin-bottom: 20px;
+    }
+    .content h5{
+        margin-top:0px;
     }
    .content h3{
         font-size: 45px;
    }
-   .content .titles{
-        margin-top: 5rem;
-        margin-left: 30px;
-        margin-right: 30px;
-        height: 105vh;
-    }  
 
     .content p{
         font-size:25px;
-        margin-bottom: 70px;
         line-height: 35px;
         color: #5d5a5a;
     }
@@ -53,8 +71,8 @@
     }
 
     .service-titles{
-        margin-left: 30px;
-        height: 80vh;
+        margin-left: 0px;
+        padding: 0px 30px;
     }
 
     .services-content h3{
@@ -75,10 +93,6 @@
     }
     .container.services {
         margin-left: 0px;
-    }
-
-    .container{
-        padding: 10px 0px;
     }
 
     .faq-drawer label{
@@ -167,11 +181,12 @@
     }
     .partners-content{
         height: 80vh;
+        width: 100%;
         margin-bottom: 30px;
         left: 0px;
     }
     .partners-header {
-        margin-top: 130px;
+        margin-top: 50px;
         margin-right: 0px;
         margin-left: 0px;
     }
@@ -189,7 +204,7 @@
         width:90px;
     }
     .partners-titles{
-        margin-left:30px;
+        margin-left:20px;
     }
     .faq-drawer__content p{
         font-size: 23px;
@@ -231,8 +246,8 @@
     }
     .card-slider {
         display: flex;
-        gap: 20px;           /* space between cards */
-        padding-left: 20px;  /* space before first card */
+        gap: 20px;           
+        padding-left: 20px;  
     }
 
     .card-slider-container {
@@ -393,12 +408,19 @@
 
 }
 
-@media screen and (min-width:600px) and (max-width: 1024px){
+@media screen and (min-width:601px) and (max-width: 1024px){
     .col-xl-10 {
         width: 100.333333%;
     }
+
     .navbar {
-        padding: 30px;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        z-index: 10;  
     }
     .companyLogo{
         width: 75px;
@@ -421,11 +443,27 @@
         opacity: 1;
     }
 
+    .container {
+        min-height: calc(100vh - 100px); 
+        display: flex;
+        flex-direction: column;
+    }
+
     .content p {
         font-size: 30px;
         line-height: 40px;
     }
+    .content{
+        height: auto; 
+        width: auto;  
+        position: relative;      
+        left: auto;            
+    }
 
+    .content .titles{
+        padding: 0px 10px;
+        margin: 0px !important;
+    }
 
     .explorebtn{
         width: 246px;
@@ -440,7 +478,9 @@
         height: 61px;
         font-size: 22px;
     }
-
+    .buttons{
+        padding-bottom: 20px;
+    }
     .container.services{
         margin-left: 28px;
     }
@@ -686,9 +726,11 @@
     .partners-content .logo-box {
         width: 258px;
         height: 188px;
+        
     }
     .partners-content {
-        background-size: 100% 100%; /* Stretch horizontally & vertically */
+        background-size: 100% 100%;
+        height: 100vh;
     }
 
     .navItems .nav-link{
@@ -723,6 +765,16 @@
     .navItems .nav-link.active::after {
         bottom: 0;
     }
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: none;
+    }
+    .service-titles{
+        margin: 0px 20px;
 
+    }
+    .services-content{
+        left:5.2%;
+        height: 100vh;
+    }
     
 }

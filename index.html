@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media_style.css">
 </head>
-    
 <body>
-        <div class="row g-0 custom-grid">
-        <nav class="navbar d-xxl-none d-xl-none justify-content-between">
+        <div class="row g-0">
+        <nav class="navbar d-xl-none justify-content-between">
           <div class="container-fluid d-flex align-items-center">
             <a class="navbar-brand m-0" href="index.html">
               <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
@@ -28,10 +27,11 @@
           </div>
         </nav>
         <!-- Desktop Sidebar -->
-        <div class="col-xxl-2 col-xl-2 col-lg-2 sidebar d-none d-xxl-flex d-xl-flex flex-column">
+        <div class="container navbar-container">
+        <div class="sidebar d-none d-xl-flex flex-column">
         <div class="d-flex logo-wrapper">
             <a href="index.html" class="logo-link">
-            <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
+                <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
             </a>
         </div>
         <ul class="nav flex-column navItems">
@@ -60,9 +60,10 @@
             </li>
         </ul>
         </div>
+        </div>
 
         <!-- Mobile Offcanvas Sidebar -->
-        <div class="offcanvas offcanvas-start d-xxl-none d-xl-none mobile-sidebar" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
+        <div class="offcanvas offcanvas-start d-xl-none mobile-sidebar" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header">
             <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
@@ -97,7 +98,8 @@
         </ul>
         </div>
         </div>
-        <div class="col-xxl-10 col-xl-10  content page-transition ms-auto">
+        <div class="container d-flex flex-column">
+        <div class="content page-transition ms-auto">
             <div class="titles">
             <h5>N&L ENTERPRISE</h5>
             <h3>ADVANCE YOUR BUSINESS<br> WITH NEW HEIGHTS</h3>
@@ -108,6 +110,7 @@
             </div>
             </div>
         </div>
+</div>
 </div>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
