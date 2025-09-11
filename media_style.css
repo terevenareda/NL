@@ -12,8 +12,8 @@
         width: 50px;
         height: 50px;
     }
-    .navItems .nav-link{
-        font-size: 22px;
+    .navItems .nav-link {
+        font-size: 17px;
     }
 
     .navbar-toggler{
@@ -380,7 +380,7 @@
         width:20px;
     }
     .facebook.btn-icon{
-        padding: 10px;
+        padding: 8px;
         background-color: #0B3861;
         border-color: #0B3861;
     }
@@ -388,13 +388,13 @@
     .twitter.btn-icon{
         background-color: #40C4FF;
         border-color: #40C4FF;
-        padding: 9px;
+        padding: 8px;
     }
 
     .linkedin.btn-icon{
         background-color: #0690CE;
         border-color: #0690CE;
-        padding: 9px;
+        padding: 8px;
     }
 
     .socialmediaimg {
