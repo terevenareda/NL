@@ -216,7 +216,7 @@
         width:90px;
     }
     .partners-titles{
-        margin-left:20px;
+        margin: 0px 10px;
     }
     
 
@@ -313,6 +313,10 @@
     }
     .country{
         width: 100%;
+    }
+    .contact-titles{
+        padding: 0px 20px;
+        margin: 0px;
     }
 
     .country p{
