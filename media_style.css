@@ -74,7 +74,8 @@
     }
 
     .services-content h5{
-        margin-top: 3rem;
+        font-size: 16px;
+        margin-top: 6rem;
     }
 
     .service-titles{
@@ -83,11 +84,11 @@
     }
 
     .services-content h3{
-        font-size: 45px;
+        font-size: 35px;
     }
 
     .services-content p{
-        font-size:25px;
+        font-size:18px;
         margin-bottom: 70px;
         line-height: 35px;
         color: #5d5a5a;
@@ -109,6 +110,7 @@
         margin-right: 18px;
     }
     .faq-drawer p{
+        font-size: 18px;
         padding-left: 10px;
         margin-left: 5px;
         color: #5d5a5a;
@@ -197,12 +199,16 @@
         margin-right: 0px;
         margin-left: 0px;
     }
+
+    .partners-content h5{
+        font-size: 16px;
+    }
     .partners-content h3{
-        font-size: 45px;
+        font-size: 35px;
     }
 
     .partners-content p{
-        font-size:25px;
+        font-size:18px;
         line-height: 35px;
         color: #5d5a5a;
     }
@@ -213,10 +219,7 @@
     .partners-titles{
         margin-left:20px;
     }
-    .faq-drawer__content p{
-        font-size: 23px;
-        color: #5d5a5a;
-    }
+    
 
     .test-content{
         width: 100%;
@@ -292,20 +295,16 @@
         margin: 10px 0px;
     }
 
-    .contact-titles{
-        margin-top: 125px;
-        margin-left: 30px;
-    }
-
     .contact-content{
         background: none;
         left: 0px;
+        width: 100%;
     }
     .contact-header{
         margin-bottom: 30px;
     }
     .country{
-        width: 390px;
+        width: 100%;
     }
 
     .country p{
@@ -398,8 +397,7 @@
     }
 
     .socialmediaimg {
-        width: 18px;
-        height: 15px;
+        width: 60%;
         opacity: 1;
     }
 
@@ -657,6 +655,9 @@
         height: 160px;
     }
 
+    .logo-box{
+        margin: 0px;
+    }
     .logopic{
         width: 115px;
     }
@@ -722,16 +723,23 @@
     }
     .partners-content .logo-box{
         transition: none !important;
+        width: 100%;
     }
     .partners-titles{
         margin-top: 130px;
+    }
+
+    .partners-content .row{
+        --bs--gutter-x: 0rem !important;
+        --bs--gutter-y: 0rem !important;   
+
     }
 }
 
 @media (min-width: 1400px){
     .partners-content .logo-box {
-        width: 258px;
-        height: 188px;
+        width: 100%;
+        height: 170px;
         
     }
     .partners-content {
@@ -742,15 +750,20 @@
     .navItems .nav-link{
         font-size: 18px;
     }
-    .subdiaries-content h6{
-        padding-top: 600px;
-    }
     .card-slider-container {
         width: 1356px;
     }
     .navItems .nav-link.active {
         color: #0690CE;
         font-weight: 700;
+    }
+
+    .sub-column{
+        margin-top: 12rem;
+    }
+
+    .first::before , .second::before, .third::before, .fourth::before {
+        height: 70%;
     }
 
     .navItems .nav-link.active::before,
@@ -781,6 +794,11 @@
     .services-content{
         left:5.2%;
         height: 100vh;
+    }
+
+    .subdiaries-content {
+        height: 100vh;
+        left: 5.2%;
     }
     
 }

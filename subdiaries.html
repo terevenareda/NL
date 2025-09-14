@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="media_style.css">
 </head>
 <body>
-    <div class="row g-0 custom-grid">
+    <div class="row g-0">
         <nav class="navbar d-xl-none justify-content-between">
           <div class="container-fluid d-flex align-items-center">
             <a class="navbar-brand m-0" href="index.html">
@@ -26,10 +26,11 @@
           </div>
         </nav>
         <!-- Desktop Sidebar -->
-        <div class="col-xl-2 sidebar d-none d-xl-flex flex-column">
+        <div class="container navbar-container">
+        <div class="sidebar d-none d-xl-flex flex-column">
         <div class="d-flex logo-wrapper">
             <a href="index.html" class="logo-link">
-            <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
+                <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
             </a>
         </div>
         <ul class="nav flex-column navItems">
@@ -58,14 +59,13 @@
             </li>
         </ul>
         </div>
-
+        </div>
         <!-- Mobile Offcanvas Sidebar -->
         <div class="offcanvas offcanvas-start d-xl-none mobile-sidebar" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarOffcanvasLabel">
         <div class="offcanvas-header">
             <img class="companyLogo" src="./companies images/image 41.png" alt="Logo">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-
         <div class="offcanvas-body d-flex flex-column justify-content-between p-0">
             <ul class="nav flex-column navItems">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -75,7 +75,6 @@
             <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
             </ul>
-
             <ul class="nav flex-column navItemsSocial">
             <li class="nav-item socialmedia">
             <a href="https://facebook.com" target="_blank" class="btn-icon facebook" aria-label="Facebook">
@@ -94,54 +93,49 @@
             </li>
         </ul>
         </div>
-        </div>
-        <div class="col-12 col-lg-10 subdiaries-content page-transition">
+        </div>  
+        <div class="subdiaries-content page-transition">
+            <div class="subdiaries">
             <div class="row g-0">
                 <!-- Card 1 -->
                 <div class="col-xxl-3 col-xl-3 col-12 first">
                     <div class="sub-column">
                         <h6>01</h6>
-                        <img class="logos" src="./logos/Centro-Logo 1 1.png" alt="Subdiary Logo">
+                        <div class="sub-logo"><img class="logos" src="./logos/Centro-Logo 1 1.png" alt="Subdiary Logo"></div>
                         <p>Established in 2009, Centro is a diversified technology solutions provider. Our dynamic set of integrated technology solutions empower your business to take.</p>
-                        <a href="https://centrocdx.com/">
-                        <button type="button" class="btn btn-primary">Visit Website</button>
-                        </a>
+                        <a href="https://centrocdx.com/"><button type="button" class="btn btn-primary">Visit Website</button></a>
                     </div>
                 </div>
-
                 <!-- Card 2 -->
                 <div class="col-xxl-3 col-xl-3 col-12 second">
                     <div class="sub-column">
                         <h6>02</h6>
-                        <img class="logos" src="./logos/TB 1 1.png" alt="Subdiary Logo">
+                        <div class="sub-logo"><img class="logos" src="./logos/TB 1 1.png" alt="Subdiary Logo"></div>
                         <p>TrueBlueMD was founded in 2015 in Sterling, VA, with a vision to revolutionize healthcare management. Since its inception, the company has experienced steady growth.</p>
-                        <a href="https://truebluemd.com/">
-                        <button type="button" class="btn btn-primary" >Visit Website</button>
-                        </a>
+                        <a href="https://truebluemd.com/"><button type="button" class="btn btn-primary">Visit Website</button></a>
                     </div>
                 </div>
-
                 <!-- Card 3 -->
                 <div class="col-xxl-3 col-xl-3 col-12 third">
                     <div class="sub-column">
                         <h6>03</h6>
-                        <img class="logos" src="./logos/N&L-E 1 1.png" alt="Subdiary Logo">
+                        <div class="sub-logo"><img class="logos" src="./logos/N&L-E 1 1.png" alt="Subdiary Logo"></div>
                         <p>Works closely with Medicare and Medicare Advantage plans to ensure that eligible patients have access to our CGM systems and supplies.</p>
                         <button type="button" class="btn btn-primary">Visit Website</button>
                     </div>
                 </div>
-
                 <!-- Card 4 -->
                 <div class="col-xxl-3 col-xl-3 col-12 fourth">
                     <div class="sub-column">
                         <h6>04</h6>
-                        <img class="logos" src="./logos/N&L-ECo 1 1.png" alt="Subdiary Logo">
+                        <div class="sub-logo"><img class="logos" src="./logos/N&L-ECo 1 1.png" alt="Subdiary Logo"></div>
                         <p>With N&L Trade, businesses gain a reliable partner committed to facilitating their growth and ensuring competitive advantage in the dynamic global marketplace.</p>
                         <button type="button" class="btn btn-primary">Visit Website</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
             <script src="script.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
