@@ -200,11 +200,14 @@ a:active {
   height: 100% !important;
   z-index: 1040 !important;
 }
-
-
-.content{
+.main{
+    height: 100vh;
     background:url("./background images/image.png") no-repeat;
     background-size: cover;
+}
+
+.content{
+    
     height: 100vh;  
     display: flex;
     flex-direction: column;
@@ -757,12 +760,15 @@ input[type="checkbox"] {
     background-color: black;
     border-radius: 5px;   
 }
-
-
-.partners-content{
+.partner-main{
     background:url("./background images/Frame 19.png") no-repeat;
     background-size: cover;
-    height: auto;
+    height: 100vh;
+
+}
+
+.partners-content{
+    
     align-content: center;
     position:relative ;
     left: 5%;

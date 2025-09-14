@@ -41,12 +41,14 @@
     .content{
         width: auto;
         position: relative;      
+        height: auto;
         left: auto;
         margin: 0px;
     }
 
     .content .titles{
-        margin: 0px;
+        margin-left: 0px;
+        margin-top: 3rem;
         padding: 0px 10px;
     }
 
@@ -75,10 +77,10 @@
 
     .services-content h5{
         font-size: 16px;
-        margin-top: 6rem;
     }
 
     .service-titles{
+        margin-top: 3rem;
         margin-left: 0px;
         padding: 0px 10px;
     }
@@ -194,7 +196,6 @@
         left: 0px;
     }
     .partners-header {
-        margin-top: 50px;
         margin-right: 0px;
         margin-left: 0px;
     }
@@ -216,7 +217,9 @@
         width:90px;
     }
     .partners-titles{
-        margin: 0px 10px;
+        margin-left:10px;
+        margin-right: 10px;
+        margin-top: 5rem;
     }
     
 
@@ -233,6 +236,7 @@
     }
    
     .test-title{
+        margin-top: 5rem;
         margin-left: 20px;
         margin-right: 20px;
     }
@@ -310,6 +314,7 @@
         font-size: 35px;
     }
     .contact-header{
+        margin-top: 5rem;
         margin-bottom: 30px;
     }
     .country{
