@@ -233,7 +233,8 @@
     }
    
     .test-title{
-        margin-left: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     .slider-dots {
         justify-content: center;
