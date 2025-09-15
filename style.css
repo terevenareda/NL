@@ -204,10 +204,11 @@ a:active {
     height: 100vh;
     background:url("./background images/image.png") no-repeat;
     background-size: cover;
+    left: 5%;
+    width: 88%;
 }
 
 .content{
-    
     height: 100vh;  
     display: flex;
     flex-direction: column;
@@ -217,6 +218,7 @@ a:active {
     margin: auto;
     left: 5%;
     width: 88%;
+    
     
 }
 
@@ -760,18 +762,22 @@ input[type="checkbox"] {
     background-color: black;
     border-radius: 5px;   
 }
+
 .partner-main{
     background:url("./background images/Frame 19.png") no-repeat;
     background-size: cover;
     height: 100vh;
-
+    position: relative;
+    width: 88%;
+    left:12%;
 }
 
 .partners-content{
-    
-    align-content: center;
-    position:relative ;
-    left: 5%;
+    height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    position:relative;
     width: 88%;
 }
 
@@ -819,22 +825,28 @@ input[type="checkbox"] {
     border-color: rgb(250, 247, 247);
 }
 
-.partners-header{
-    margin: 25px 30px;
-    
-}
 
 .logo-box .img{
     transition: transform 1s ease-in-out;
 }
 
-.contact-content{
+.main-contact{
     background:url("./background images/shutterstock_2321207167_edited\ 1.png") no-repeat ;
-    background-position: center;
-    height: auto;
+    background-size: cover;
+    height: 100vh;
     position: relative;
-    left: 12%;
     width: 88%;
+    left:12%;
+
+}
+
+.contact-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    position:relative;
+    width: 100%;
 }
 
 
@@ -880,7 +892,8 @@ input[type="checkbox"] {
 }
 
 .contact-titles{
-    margin: 25px 30px;
+    width: 100%;
+    margin: 2rem 0px;
 }
 
 .test-content h5 {
@@ -1007,45 +1020,35 @@ input[type="checkbox"] {
 .slider-dots{
     position: relative;
     display: flex;
-    justify-content: center;
-    margin-left: 200px;
+    justify-content: flex-end;
+    margin-right: 6rem;
     margin-bottom: 90px;
     transition: transform 1s ease-in-out; 
 }
 
-.dot {
-  height: 8px;
-  width: 8px;
-  margin-right: 15px;
-  margin-left: 15px;
-  background-color: white;
-  border-radius: 50%;
-  display: inline-block;
+.arrow-svg {
+  width: 7%;
+  fill: white;
   cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
+  transition: fill 0.3s;
 }
 
-.dot-ring {
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.4s ease-in-out; 
-  pointer-events: none; 
+.arrow-svg:hover {
+  fill: #c5c2c2;
 }
 
-.dot-ring.active {
-  opacity: 1;           
+#cardSlider {
+  display: flex;
+  transition: transform 4s ease-in-out; /* Smooth sliding in 0.8s */
+  will-change: transform;
+}
+
+#cardSlider:active {
+  cursor: grabbing;
 }
 
 
-/* Treat anything up to 1024px as mobile */
+
 @media (max-width: 1024px) {
   .d-lg-none {
     display: block !important;   /* show mobile stuff */
