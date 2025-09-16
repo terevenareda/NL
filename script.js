@@ -72,9 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
       startTransition(link.href);
     });
   });
-// ===== Slider Elements =====
+// ===== Elements =====
 const slider = document.getElementById("cardSlider");
-const cards = document.querySelectorAll(".card");
+const cards = Array.from(slider.querySelectorAll(".card"));
 const arrowLeft = document.querySelector(".arrow-svg.left");
 const arrowRight = document.querySelector(".arrow-svg.right");
 
@@ -82,31 +82,45 @@ let currentIndex = 0;
 let cardWidth = 0;
 let autoSlideInterval;
 let isDragging = false;
+let isSwiping = false;     // whether we've detected horizontal intent
 let startPos = 0;
+let startY = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
 let animationID;
 
-// ===== Get Card Width =====
+// ===== Helpers =====
 function getCardWidth() {
   if (!slider || !cards.length) return 0;
   const gap = parseInt(getComputedStyle(slider).gap) || 0;
   return cards[0].offsetWidth + gap;
 }
 
-// ===== Update Slider =====
+function getPositionX(e) {
+  if (e.type.includes("mouse")) return e.pageX;
+  if (e.touches && e.touches[0]) return e.touches[0].clientX;
+  if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].clientX;
+  return e.clientX || 0;
+}
+function getPositionY(e) {
+  if (e.type.includes("mouse")) return e.pageY;
+  if (e.touches && e.touches[0]) return e.touches[0].clientY;
+  if (e.changedTouches && e.changedTouches[0]) return e.changedTouches[0].clientY;
+  return e.clientY || 0;
+}
+
 function updateSlider() {
   slider.style.transition = "transform 0.6s ease-in-out";
   slider.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
   prevTranslate = -currentIndex * cardWidth;
 }
 
-// ===== Resize Fix =====
 function updateCardWidth() {
   cardWidth = getCardWidth();
   updateSlider();
 }
 
+// ===== Resize / init =====
 window.addEventListener("resize", updateCardWidth);
 window.addEventListener("load", () => {
   updateCardWidth();
@@ -121,7 +135,6 @@ function startAutoSlide() {
     updateSlider();
   }, 4000);
 }
-
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
@@ -132,52 +145,99 @@ arrowLeft?.addEventListener("click", () => {
   updateSlider();
   startAutoSlide();
 });
-
 arrowRight?.addEventListener("click", () => {
   currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
   updateSlider();
   startAutoSlide();
 });
 
-// ===== Drag & Swipe Events =====
+// ===== Prevent image dragging on cards =====
+cards.forEach(c => {
+  c.addEventListener('dragstart', e => e.preventDefault());
+});
+
+// ===== Drag & Touch (with vertical/horizontal detection) =====
 slider.addEventListener("mousedown", touchStart);
+slider.addEventListener("mousemove", touchMove);
 slider.addEventListener("mouseup", touchEnd);
 slider.addEventListener("mouseleave", touchEnd);
-slider.addEventListener("mousemove", touchMove);
 
 slider.addEventListener("touchstart", touchStart, { passive: false });
-slider.addEventListener("touchend", touchEnd, { passive: false });
 slider.addEventListener("touchmove", touchMove, { passive: false });
+slider.addEventListener("touchend", touchEnd, { passive: false });
+slider.addEventListener("touchcancel", touchEnd, { passive: false });
 
 function touchStart(event) {
+  // ignore non-left mouse buttons
+  if (event.type === "mousedown" && event.button !== 0) return;
+
   isDragging = true;
+  isSwiping = false;
   startPos = getPositionX(event);
+  startY = getPositionY(event);
   stopAutoSlide();
   slider.style.transition = "none";
+  slider.classList.add('dragging');
   animationID = requestAnimationFrame(animation);
-}
 
-function touchEnd() {
-  cancelAnimationFrame(animationID);
-  isDragging = false;
-  const movedBy = currentTranslate - prevTranslate;
-
-  if (movedBy < -100 && currentIndex < cards.length - 1) currentIndex++;
-  if (movedBy > 100 && currentIndex > 0) currentIndex--;
-
-  setPositionByIndex();
-  startAutoSlide();
+  // some events are cancelable; if so we can prevent default right away
+  if (event.cancelable) event.preventDefault();
 }
 
 function touchMove(event) {
   if (!isDragging) return;
-  event.preventDefault(); // Prevent scrolling on iOS
-  const currentPosition = getPositionX(event);
-  currentTranslate = prevTranslate + currentPosition - startPos;
+
+  const currentX = getPositionX(event);
+  const currentY = getPositionY(event);
+  const deltaX = currentX - startPos;
+  const deltaY = currentY - startY;
+
+  // If we haven't decided whether it's horizontal or vertical, detect intent:
+  if (!isSwiping) {
+    // small threshold so tiny moves don't block
+    if (Math.abs(deltaX) > 10 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      isSwiping = true; // horizontal
+    } else if (Math.abs(deltaY) > 10 && Math.abs(deltaY) > Math.abs(deltaX)) {
+      // vertical scroll intent -> stop handling the drag so page scrolls
+      isDragging = false;
+      slider.classList.remove('dragging');
+      startAutoSlide();
+      return;
+    } else {
+      // uncertain yet
+      return;
+    }
+  }
+
+  // if we get here, it's horizontal swipe — prevent page scroll and update translate
+  if (event.cancelable) event.preventDefault();
+  currentTranslate = prevTranslate + deltaX;
+
+  // optional: soft clamp to avoid too much overscroll visual
+  const maxTranslate = 0 + 100; // allow 100px overscroll on first slide
+  const minTranslate = -((cards.length - 1) * cardWidth) - 100; // overscroll last
+  if (currentTranslate > maxTranslate) currentTranslate = maxTranslate;
+  if (currentTranslate < minTranslate) currentTranslate = minTranslate;
 }
 
-function getPositionX(event) {
-  return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+function touchEnd() {
+  cancelAnimationFrame(animationID);
+  if (!isSwiping && !isDragging) {
+    // we likely aborted due to vertical scroll - nothing to do
+    return;
+  }
+
+  isDragging = false;
+  slider.classList.remove('dragging');
+
+  const movedBy = currentTranslate - prevTranslate;
+
+  // threshold for change slide
+  if (movedBy < -cardWidth * 0.25 && currentIndex < cards.length - 1) currentIndex++;
+  if (movedBy > cardWidth * 0.25 && currentIndex > 0) currentIndex--;
+
+  setPositionByIndex();
+  startAutoSlide();
 }
 
 function animation() {

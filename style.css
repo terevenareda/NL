@@ -1037,11 +1037,26 @@ input[type="checkbox"] {
   fill: #c5c2c2;
 }
 
+/* slider container (the element you translate) */
 #cardSlider {
-  touch-action: pan-x; 
+  touch-action: none; /* recommended for carousels; we do directional detection in JS */
   -webkit-user-select: none;
   user-select: none;
+  -webkit-overflow-scrolling: touch; /* helps iOS rendering */
+  cursor: grab;
 }
+
+/* optional: when dragging */
+#cardSlider.dragging {
+  cursor: grabbing;
+}
+
+/* prevent images from being dragged (if images inside cards) */
+#cardSlider img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
 
 #cardSlider:active {
   cursor: grabbing;
