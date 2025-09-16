@@ -1097,11 +1097,6 @@ input[type="checkbox"] {
     line-height: 30px;
 }
 
-.blog-main h6:hover{
-    color:#0690CE;
-    cursor: pointer;
-}
-
 .blog-main p{
     font-family: 'Montserrat', sans-serif;
     font-weight: 350;
@@ -1109,7 +1104,21 @@ input[type="checkbox"] {
     font-size: 17px;
     color: #5d5a5a;
     line-height: 30px;
+    transition: color 0.3s ease-in-out;
 }
+
+.blog:hover h6,
+.blog:hover p{
+    color: #0690CE;
+    cursor: pointer;
+}
+
+.main-blog:hover h6,
+.main-blog:hover p{
+    color: #0690CE;
+    cursor: pointer;
+}
+
 
 .meta-info {
   display: flex;
