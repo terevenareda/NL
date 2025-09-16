@@ -244,7 +244,7 @@ a:active {
     font-family: 'Montserrat', sans-serif;
     font-weight: 350;
     font-style: normal;
-    font-size: 60px;
+    font-size: 45px;
     text-transform: uppercase;
 }
 
@@ -1037,21 +1037,18 @@ input[type="checkbox"] {
   fill: #c5c2c2;
 }
 
-/* slider container (the element you translate) */
 #cardSlider {
-  touch-action: none; /* recommended for carousels; we do directional detection in JS */
+  touch-action: none;
   -webkit-user-select: none;
   user-select: none;
-  -webkit-overflow-scrolling: touch; /* helps iOS rendering */
+  -webkit-overflow-scrolling: touch; 
   cursor: grab;
 }
 
-/* optional: when dragging */
 #cardSlider.dragging {
   cursor: grabbing;
 }
 
-/* prevent images from being dragged (if images inside cards) */
 #cardSlider img {
   -webkit-user-drag: none;
   pointer-events: none;
@@ -1060,6 +1057,142 @@ input[type="checkbox"] {
 
 #cardSlider:active {
   cursor: grabbing;
+}
+
+.blog-main{
+    position: relative;
+    width: 88%;
+    left: 12%;
+    z-index: 1;
+}
+
+
+.blog-main h5{
+    font-family: 'Poppins', sans-serif;
+    font-style: semi-bold;
+    font-weight: 600;
+    font-size: 20px;
+    color: #0690CE;
+    margin-top: 2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+}
+.blog-main h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 45px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.blog-main h6{
+    margin-top: 1rem;
+    font-family: 'Montserrat', sans-serif; 
+    color: #1D1D1D;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out; 
+    line-height: 30px;
+}
+
+.blog-main h6:hover{
+    color:#0690CE;
+    cursor: pointer;
+}
+
+.blog-main p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 350;
+    font-style: normal;
+    font-size: 17px;
+    color: #5d5a5a;
+    line-height: 30px;
+}
+
+.meta-info {
+  display: flex;
+  text-align: center;
+  gap: 10px; 
+  margin-top: 1rem;
+}
+
+.meta-info svg{
+    width: 5%;
+    height: 5%;
+    opacity: 0.6;
+}
+
+.blog-main hr{
+    border-top: 2px solid #00000080; 
+    opacity: 1;                
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.blog-pic{
+    width: 100%;
+}
+
+.main-blog-pic{
+    width: 100%;
+}
+
+
+.blog-main button {
+    justify-self: left;
+    justify-content: left;
+    opacity: 1;                  
+    width:70%;
+    height: 42px;
+    border-radius: 0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    background: linear-gradient(to right, #0B3861 75%, #0690CE 75% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 25%; 
+    box-sizing: border-box;
+    margin-bottom: 2rem; 
+    transition: background 0.4s ease-in-out;
+}
+
+
+.blog-main button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8%; 
+    transform: translateY(-50%);
+    width: 20px;  
+    height: 20px;
+    background: url('./services images/Arrow_right_long.png') no-repeat center center;
+    background-size: contain;
+    transition: transform 0.1s ease; 
+    
+}
+
+.blog-main button:hover {
+    background: linear-gradient(to right, #08274a 75%, #0b87c0 75% 100%);
+
+}
+.blog-main button::after:hover{
+    background: linear-gradient(to right, #0b87c0 75% 100%);
+    
+    
+}
+
+
+.limited-text{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;  
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
