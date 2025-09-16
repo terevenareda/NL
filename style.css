@@ -1038,9 +1038,9 @@ input[type="checkbox"] {
 }
 
 #cardSlider {
-  display: flex;
-  transition: transform 4s ease-in-out; /* Smooth sliding in 0.8s */
-  will-change: transform;
+  touch-action: pan-x; 
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #cardSlider:active {

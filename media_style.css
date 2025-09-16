@@ -418,7 +418,8 @@
     }
 
     .socialmediaimg {
-        width: 60%;
+        width: 25px;
+        height: 25px;
         opacity: 1;
     }
 

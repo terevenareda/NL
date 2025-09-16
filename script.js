@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       startTransition(link.href);
     });
   });
-// ===== Slider =====
+// ===== Slider Elements =====
 const slider = document.getElementById("cardSlider");
 const cards = document.querySelectorAll(".card");
 const arrowLeft = document.querySelector(".arrow-svg.left");
@@ -96,9 +96,9 @@ function getCardWidth() {
 
 // ===== Update Slider =====
 function updateSlider() {
-  slider.style.transition = "transform 0.6s ease-in-out"; // smoother speed
+  slider.style.transition = "transform 0.6s ease-in-out";
   slider.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-  prevTranslate = -currentIndex * cardWidth; // Sync drag position
+  prevTranslate = -currentIndex * cardWidth;
 }
 
 // ===== Resize Fix =====
@@ -128,28 +128,26 @@ function stopAutoSlide() {
 
 // ===== Arrow Navigation =====
 arrowLeft?.addEventListener("click", () => {
-  if (currentIndex > 0) currentIndex--;
-  else currentIndex = cards.length - 1; // Loop back
+  currentIndex = currentIndex > 0 ? currentIndex - 1 : cards.length - 1;
   updateSlider();
   startAutoSlide();
 });
 
 arrowRight?.addEventListener("click", () => {
-  if (currentIndex < cards.length - 1) currentIndex++;
-  else currentIndex = 0; // Loop to first
+  currentIndex = currentIndex < cards.length - 1 ? currentIndex + 1 : 0;
   updateSlider();
   startAutoSlide();
 });
 
-// ===== Drag & Swipe =====
+// ===== Drag & Swipe Events =====
 slider.addEventListener("mousedown", touchStart);
 slider.addEventListener("mouseup", touchEnd);
 slider.addEventListener("mouseleave", touchEnd);
 slider.addEventListener("mousemove", touchMove);
 
-slider.addEventListener("touchstart", touchStart);
-slider.addEventListener("touchend", touchEnd);
-slider.addEventListener("touchmove", touchMove);
+slider.addEventListener("touchstart", touchStart, { passive: false });
+slider.addEventListener("touchend", touchEnd, { passive: false });
+slider.addEventListener("touchmove", touchMove, { passive: false });
 
 function touchStart(event) {
   isDragging = true;
@@ -173,6 +171,7 @@ function touchEnd() {
 
 function touchMove(event) {
   if (!isDragging) return;
+  event.preventDefault(); // Prevent scrolling on iOS
   const currentPosition = getPositionX(event);
   currentTranslate = prevTranslate + currentPosition - startPos;
 }
